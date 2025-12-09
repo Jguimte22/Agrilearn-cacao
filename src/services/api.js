@@ -1,4 +1,6 @@
-const API_BASE_URL = 'http://localhost:5000/api';
+// Get API URL from environment variable or use localhost default
+// VITE_API_URL should include the base path (e.g., http://localhost:5000/api or https://backend.onrender.com/api)
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
 
 // Helper function to get auth token
 const getAuthToken = () => {
