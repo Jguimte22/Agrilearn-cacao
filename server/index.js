@@ -48,7 +48,31 @@ const quizScoreRoutes = require('./routes/quizScoreRoutes');
 const app = express();
 
 // Middleware
-app.use(cors());
+// Configure CORS to allow requests from the frontend. In production (Render)
+// set FRONTEND_URL env variable to your Vercel URL (e.g. https://your-app.vercel.app)
+const frontendOrigin = process.env.FRONTEND_URL || '*';
+const corsOptions = {
+  origin: (origin, callback) => {
+    // Allow requests with no origin (e.g., server-to-server, curl)
+    if (!origin) return callback(null, true);
+    // If FRONTEND_URL is set, allow only that origin; otherwise allow all
+    if (frontendOrigin === '*' || origin === frontendOrigin || origin.endsWith('.vercel.app')) {
+      return callback(null, true);
+    }
+    return callback(new Error('Not allowed by CORS'));
+  },
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'x-auth-token', 'Accept']
+};
+
+app.use((req, res, next) => {
+  // Simple request logging to help diagnose cross-origin issues
+  console.log(`➡️ Incoming request: ${req.method} ${req.path} from Origin: ${req.headers.origin || 'none'}`);
+  next();
+});
+
+app.use(cors(corsOptions));
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
