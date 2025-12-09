@@ -467,6 +467,25 @@ app.get('/api/courses', (req, res) => {
   });
 });
 
+// Health check endpoint for load balancers / uptime monitoring
+app.get('/health', (req, res) => {
+  const uptime = process.uptime();
+  const dbState = mongoose.connection.readyState; // 0 disconnected,1 connected,2 connecting,3 disconnecting
+  const dbStatusMap = {
+    0: 'disconnected',
+    1: 'connected',
+    2: 'connecting',
+    3: 'disconnecting'
+  };
+
+  res.json({
+    status: 'ok',
+    uptimeSeconds: Math.round(uptime),
+    db: dbStatusMap[dbState] || dbState,
+    timestamp: new Date()
+  });
+});
+
 // 404 handler - must be AFTER all routes
 app.use((req, res, next) => {
   console.log('⚠️ 404 Not Found:', req.method, req.url);
