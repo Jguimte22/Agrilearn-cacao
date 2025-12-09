@@ -446,8 +446,8 @@ const courses = {
       }
     ]
   },
-  'cloning-techniques': {
-    id: 'cloning-techniques',
+  'advanced-cloning-techniques': {
+    id: 'advanced-cloning-techniques',
     title: 'Cacao Cloning Techniques',
     description: 'Master advanced cloning methods for superior cacao propagation and genetic preservation.',
     duration: '4 modules · 50 mins',
