@@ -2,12 +2,23 @@
 const dotenv = require('dotenv');
 const path = require('path');
 
-// Load environment variables from .env file in the server directory
+// Load environment variables from .env file in the server directory (if it exists)
+// In production (Render), environment variables are set directly in the dashboard
 const envPath = path.resolve(__dirname, '..', '.env');
 const result = dotenv.config({ path: envPath });
 
-if (result.error) {
-  console.error('❌ Error loading .env file:', result.error);
+if (result.error && process.env.NODE_ENV !== 'production') {
+  console.warn('⚠️ Warning: .env file not found. Using environment variables from system.');
+}
+
+// Check if required environment variables are set
+if (!process.env.MONGODB_URI) {
+  console.error('❌ Error: MONGODB_URI environment variable is not set');
+  process.exit(1);
+}
+
+if (!process.env.JWT_SECRET) {
+  console.error('❌ Error: JWT_SECRET environment variable is not set');
   process.exit(1);
 }
 
