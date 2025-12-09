@@ -1,0 +1,16 @@
+// Step 1: Add this import after line 4 (after import './CacaoProcessingGame.css';)
+import CongratsPopup from './components/CongratsPopup';
+
+// Step 2: Replace lines 316-347 (the entire {gameStatus === 'won' && ( ... )} block) with:
+      <CongratsPopup
+        show={gameStatus === 'won'}
+        title="Congratulations!"
+        message="You've successfully processed cacao into chocolate!"
+        stats={[
+          { value: score, label: "Final Score" },
+          { value: difficulty.charAt(0).toUpperCase() + difficulty.slice(1), label: "Difficulty" },
+          { value: `${currentStep + 1}/${processingSteps.length}`, label: "Steps Completed" }
+        ]}
+        onPlayAgain={() => startGame(difficulty)}
+        onBackToMenu={handleBackToLessons}
+      />

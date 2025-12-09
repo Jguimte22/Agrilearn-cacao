@@ -1,0 +1,2435 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #5E3A1E;
+  /* Changed to brown */
+  --secondary-color: #9c5600;
+  --text-dark: #1A120E;
+  --text-light: #6b7280;
+  --background-light: #F5F2E8;
+  --background-white: #ffffff;
+  --border-color: #e9ecef;
+  --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 20px rgba(94, 58, 30, 0.08);
+  --shadow-lg: 0 8px 32px rgba(94, 58, 30, 0.15);
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --border-radius: 12px;
+  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-primary);
+  background: var(--background-light);
+  color: var(--text-dark);
+  line-height: 1.7;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Force mobile sidebar and overlay to be on top of everything */
+.mobile-sidebar,
+.mobile-sidebar-overlay {
+  position: fixed !important;
+  z-index: 99999 !important;
+}
+
+.mobile-sidebar {
+  z-index: 100000 !important;
+}
+
+/* E-Learning Landing Page */
+.elearning-landing {
+  min-height: 100vh;
+  width: 100%;
+  background: #F5F2E8;
+  /* light cream background */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 90px;
+}
+
+/* Header Styles - Universal for all pages */
+.elearning-header {
+  background: #A0522D;
+  /* sienna brown for navbar */
+  color: white;
+  padding: 1.25rem 0;
+  box-shadow: 0 8px 32px rgba(160, 82, 45, 0.15);
+  /* sienna brown shadow */
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  height: 90px;
+  font-family: 'Segoe UI', 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+}
+
+.header-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  opacity: 1;
+}
+
+.logo-icon {
+  width: 50px;
+  height: 50px;
+  margin-right: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.logo-text h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  letter-spacing: -0.02em;
+  background: #FAF7F0;
+  /* very light cream */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-family: 'Segoe UI', 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+}
+
+.logo-text p {
+  font-size: 0.95rem;
+  opacity: 0.85;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  font-family: 'Segoe UI', 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+}
+
+.elearning-nav {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+
+
+/* Navigation Container */
+.elearning-nav {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Navigation Items - Completely Static */
+.elearning-nav .nav-item,
+.elearning-nav .login-btn {
+  padding: 0 1.25rem !important;
+  margin: 0 !important;
+  letter-spacing: 0.2px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.9) !important;
+  text-decoration: none !important;
+  font-size: 0.95rem !important;
+  font-weight: 500 !important;
+  height: 100%;
+  min-width: max-content;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  -webkit-tap-highlight-color: transparent !important;
+  -webkit-touch-callout: none !important;
+  -webkit-user-select: none !important;
+  user-select: none !important;
+  border: none !important;
+  cursor: pointer;
+  outline: none !important;
+  box-sizing: border-box;
+  position: static !important;
+  vertical-align: middle;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform: none !important;
+  transition: none !important;
+  box-shadow: none !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
+}
+
+/* Disable all interactive states */
+.elearning-nav .nav-item:active,
+.elearning-nav .nav-item:focus,
+.elearning-nav .nav-item:visited,
+.elearning-nav .login-btn:active,
+.elearning-nav .login-btn:focus,
+.elearning-nav .login-btn:visited {
+  transform: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  background: none !important;
+}
+
+/* Login Button - No Hover Effects */
+.elearning-nav .login-btn {
+  background-color: #c25705 !important;
+  color: white !important;
+  padding: 0.5rem 1.5rem !important;
+  border-radius: 4px;
+  margin-left: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: 1px solid #864314 !important;
+}
+
+/* Remove any pseudo-elements */
+.elearning-nav .nav-item::after,
+.elearning-nav .nav-item::before,
+.elearning-nav .login-btn::after,
+.elearning-nav .login-btn::before {
+  content: none !important;
+  display: none !important;
+}
+
+/* Primary Button */
+.btn-primary {
+  background: var(--accent);
+  color: #1A120E;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(202, 104, 0, 0.25);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(202, 104, 0, 0.25);
+}
+
+/* Secondary Button */
+.btn-secondary {
+  background: transparent;
+  color: var(--accent);
+  border: 2px solid var(--accent);
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 138, 101, 0.1);
+  transform: translateY(-2px);
+}
+
+.btn-secondary:active {
+  transform: translateY(0);
+}
+
+/* Hero Section */
+.hero-section {
+  padding: 4rem 2.5rem 6rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 90px);
+  width: 100%;
+  font-family: 'Segoe UI', 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+}
+
+.hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 4rem;
+  font-family: 'Segoe UI', 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+}
+
+.hero-text {
+  flex: 1;
+  text-align: left;
+}
+
+.hero-text h2 {
+  font-size: 5.3rem;
+  font-weight: 700;
+  color: #c85700;
+  /* Using primary color for consistency */
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  font-family: 'Segoe UI', 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+}
+
+.hero-text p {
+  font-size: 1.25rem;
+  color: #4a4a4a;
+  margin-bottom: 2.5rem;
+  line-height: 1.7;
+  font-weight: 400;
+  max-width: 600px;
+  font-family: 'Segoe UI', 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+}
+
+.hero-stats {
+  display: flex;
+  gap: 2.5rem;
+  margin-bottom: 2.5rem;
+  font-family: 'Segoe UI', 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+}
+
+.stat {
+  text-align: left;
+}
+
+.stat-number {
+  display: block;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #763d02;
+  margin-bottom: 0.25rem;
+  font-family: 'Segoe UI', 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: #6b7280;
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: 0.02em;
+  font-family: 'Segoe UI', 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* CTA button (formal version) */
+.cta-button {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.9rem 2rem;
+  background: var(--secondary-color);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 12px rgba(156, 86, 0, 0.25);
+  font-family: 'Segoe UI', 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  text-align: center;
+}
+
+.cta-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.6s;
+  z-index: -1;
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(156, 86, 0, 0.35);
+}
+
+.cta-button:hover::before {
+  left: 100%;
+}
+
+/* Footer Styles - Simple & Clean */
+.about-footer {
+  background: #624100;
+  padding: 2rem 0 1rem;
+  margin-top: 3rem;
+  border-top: 2px solid #754400;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.footer-section h4 {
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+}
+
+.footer-section p {
+  color: #e8f5e8;
+  line-height: 1.5;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 0.4rem;
+}
+
+.footer-section ul li a,
+.footer-section .social-links a {
+  color: #e8f5e8;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover,
+.footer-section .social-links a:hover {
+  color: #ffffff;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  max-width: 1000px;
+  margin: 0 auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.footer-bottom p {
+  color: #c8d6c8;
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+/* Mobile Footer */
+@media (max-width: 768px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    text-align: center;
+  }
+
+  .about-footer {
+    padding: 1.5rem 0 1rem;
+  }
+}
+
+.cacao-tree-image img,
+.design-image img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.15));
+  /* nice floating shadow */
+
+  /* Floating animation */
+  animation: floatUpDown 3s ease-in-out infinite;
+}
+
+@keyframes floatUpDown {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-15px);
+  }
+
+  /* move up */
+  100% {
+    transform: translateY(0px);
+  }
+
+  /* back to original */
+}
+
+/* Courses Section */
+.courses-section {
+  padding: 6rem 2.5rem;
+  background: #df7700;
+  margin: 3rem auto;
+  border-radius: 20px;
+  max-width: 1300px;
+  border: 1px solid #cc5200;
+}
+
+/* Section Header */
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section-header h3 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  color: #3a3a3a;
+}
+
+.section-header p {
+  font-size: 1.1rem;
+  color: #6b7280;
+  max-width: 640px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Grid Layout */
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+
+/* Minimalist Icon */
+.course-icon {
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.course-icon img {
+  width: 55%;
+  height: 55%;
+  object-fit: contain;
+}
+
+
+/* Course Content */
+.course-content h4 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 0.5rem;
+}
+
+.course-content p {
+  color: #4b5563;
+  margin-bottom: 1.25rem;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+/* Button */
+.course-btn {
+  width: 100%;
+  padding: 0.9rem;
+  background: #1e1e1e;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+/* Hero Visual */
+.hero-visual {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding-left: 2rem;
+  min-height: 500px;
+}
+
+.cacao-tree-image img,
+.design-image img {
+  max-width: 100%;
+  height: auto;
+  max-height: 500px;
+  object-fit: contain;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.15));
+  animation: floatUpDown 3s ease-in-out infinite;
+  transition: transform 0.3s ease;
+}
+
+/* Cacao Gallery Section */
+.cacao-gallery {
+  padding: 5rem 0;
+  background-color: #f9f5f0;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.cacao-gallery .section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.cacao-gallery .section-header h2 {
+  font-size: 2.5rem;
+  color: #5a2d0e;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.cacao-gallery .section-header p {
+  color: #7a5a3a;
+  font-size: 1.1rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.gallery-item {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  aspect-ratio: 1/1;
+  background: #fff;
+}
+
+.gallery-item.large {
+  grid-column: span 6;
+  aspect-ratio: 2/1;
+}
+
+.gallery-item:not(.large) {
+  grid-column: span 3;
+}
+
+.gallery-image {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.gallery-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.gallery-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
+  padding: 2rem 1.5rem;
+  color: white;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.gallery-item:hover .gallery-overlay {
+  transform: translateY(0);
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+.gallery-overlay h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #fff;
+  font-weight: 600;
+}
+
+.gallery-overlay p {
+  font-size: 0.95rem;
+  opacity: 0.9;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .gallery-item:not(.large) {
+    grid-column: span 4;
+  }
+
+  .gallery-item.large {
+    grid-column: span 12;
+    aspect-ratio: 16/9;
+  }
+}
+
+@media (max-width: 768px) {
+  .cacao-gallery {
+    padding: 3rem 0;
+  }
+
+  .cacao-gallery .section-header h2 {
+    font-size: 2rem;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    padding: 0 1rem;
+  }
+
+  .gallery-item,
+  .gallery-item.large {
+    grid-column: span 1 !important;
+    aspect-ratio: 16/9 !important;
+  }
+
+  .gallery-overlay {
+    transform: translateY(0);
+    padding: 1.5rem 1rem;
+  }
+
+  .gallery-overlay h3 {
+    font-size: 1.3rem;
+  }
+
+  .gallery-overlay p {
+    font-size: 0.9rem;
+  }
+}
+
+@keyframes floatUpDown {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.cacao-benefits-story .benefits-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  margin-bottom: 4rem;
+}
+
+.cacao-benefits-story .cacao-story {
+  padding: 1.5rem;
+}
+
+.cacao-benefits-story .cacao-story h3 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #a75600;
+  margin-bottom: 1.5rem;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+
+.cacao-benefits-story .cacao-story p {
+  color: #6b7280;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+.cacao-benefits-story .cacao-visual {
+  position: relative;
+}
+
+.cacao-benefits-story .cacao-visual img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(103, 67, 0, 0.15);
+}
+
+.cacao-benefits-story .cacao-visual::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(transparent, rgba(161, 94, 0, 0.8));
+  border-radius: 0 0 12px 12px;
+  pointer-events: none;
+}
+
+.cacao-benefits-story .cacao-visual p {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  color: white;
+  padding: 2rem 1.5rem 1.5rem;
+  text-align: center;
+  margin: 0;
+  z-index: 2;
+}
+
+.cacao-benefits-story .cacao-visual p:first-of-type {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.cacao-benefits-story .cacao-visual p:last-of-type {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.cacao-benefits-story .benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.cacao-benefits-story .benefit-card {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 4px 16px rgba(30, 58, 46, 0.08);
+  border: 1px solid #e9ecef;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.cacao-benefits-story .benefit-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(45, 90, 61, 0.03),
+      transparent);
+  transition: left 0.6s;
+}
+
+.cacao-benefits-story .benefit-card:hover::before {
+  left: 100%;
+}
+
+.cacao-benefits-story .benefit-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 24px rgba(30, 58, 46, 0.15);
+  border-color: rgba(45, 90, 61, 0.15);
+}
+
+.cacao-benefits-story .benefit-card h4 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #9b5d00;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+
+.cacao-benefits-story .benefit-card p {
+  color: #6b7280;
+  line-height: 1.6;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+
+/* Responsive Design */
+
+/* Large tablets and small desktops (1024px and below) */
+@media (max-width: 1024px) {
+  .header-content {
+    padding: 0 2rem;
+  }
+
+  .hero-section {
+    padding: 3rem 2rem 5rem;
+  }
+
+  .hero-text h2 {
+    font-size: 4rem;
+  }
+
+  .gallery-grid {
+    gap: 1rem;
+    padding: 0 1rem;
+  }
+}
+
+/* Tablets (768px and below) */
+@media (max-width: 768px) {
+  .elearning-landing {
+    padding-top: 80px;
+    padding-left: 0;
+    padding-right: 0;
+    margin: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    overflow-x: hidden;
+  }
+
+  .elearning-header {
+    height: 80px;
+    padding: 0.75rem 0;
+    margin: 0;
+    width: 100%;
+  }
+
+  .header-content {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 0 1rem;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .logo-section {
+    width: 100%;
+    justify-content: center;
+    margin: 0;
+  }
+
+  .elearning-nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    margin: 0;
+  }
+
+  .nav-item {
+    padding: 0.5rem 1rem !important;
+    font-size: 0.85rem !important;
+  }
+
+  .login-btn {
+    margin-left: 0 !important;
+  }
+
+  .logo-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .logo-text h1 {
+    font-size: 1.5rem;
+  }
+
+  .logo-text p {
+    font-size: 0.85rem;
+  }
+
+  .hero-section {
+    padding: 3rem 1rem;
+    margin: 0 auto;
+    min-height: auto;
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero-content {
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  .hero-text {
+    flex: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0 1rem;
+    margin: 0;
+  }
+
+  .hero-text h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin: 0 0 1rem 0;
+  }
+
+  .hero-text p {
+    font-size: 1.1rem;
+    max-width: 100%;
+    text-align: center;
+    margin: 0 0 1.5rem 0;
+  }
+
+  .hero-stats {
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .hero-visual {
+    padding: 0;
+    margin: 0;
+    min-height: 300px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .design-image {
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .design-image img {
+    max-height: 300px;
+    margin: 0 auto;
+  }
+
+  .cacao-gallery {
+    padding: 2.5rem 1rem;
+    margin: 0;
+    width: 100%;
+  }
+
+  .cacao-gallery .container {
+    padding: 0;
+    margin: 0 auto;
+  }
+
+  .courses-section {
+    padding: 3rem 1rem;
+    margin: 2rem auto;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .section-header {
+    margin: 0 auto 2rem;
+    padding: 0 1rem;
+  }
+
+  .section-header h3 {
+    font-size: 2rem;
+    text-align: center;
+    margin: 0 0 1rem 0;
+  }
+
+  .section-header p {
+    font-size: 1rem;
+    text-align: center;
+    margin: 0;
+  }
+
+  .courses-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    width: 100%;
+    padding: 0 1rem;
+    margin: 0 auto;
+  }
+
+  .cacao-benefits-story {
+    padding: 3rem 1rem;
+    margin: 1.5rem auto;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .cacao-benefits-story .container {
+    padding: 0;
+    margin: 0 auto;
+  }
+
+  .cacao-benefits-story .section-header h2 {
+    font-size: 2rem;
+    text-align: center;
+    margin: 0 0 1rem 0;
+  }
+
+  .benefits-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    width: 100%;
+    padding: 0 1rem;
+    margin: 0 auto;
+  }
+
+  .benefits-showcase {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    width: 100%;
+    padding: 0;
+    margin: 0 auto;
+  }
+
+  .story-timeline {
+    padding: 2rem 1rem;
+    margin: 0 auto;
+  }
+
+  .cta-section {
+    margin: 2rem auto;
+    padding: 2rem 1rem;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    text-align: center;
+    padding: 0 1rem;
+    margin: 0 auto;
+  }
+
+  .footer-section ul {
+    text-align: center;
+  }
+
+  .social-links {
+    justify-content: center;
+  }
+}
+
+/* Mobile devices (480px and below) */
+@media (max-width: 480px) {
+  .elearning-landing {
+    padding-top: 70px;
+    padding-left: 0;
+    padding-right: 0;
+    margin: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    overflow-x: hidden;
+  }
+
+  .elearning-header {
+    height: 70px;
+    padding: 0.5rem 0;
+    margin: 0;
+    width: 100%;
+  }
+
+  .header-content {
+    padding: 0 0.75rem;
+    margin: 0 auto;
+    gap: 0.75rem;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .logo-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .logo-text h1 {
+    font-size: 1.25rem;
+    margin: 0;
+  }
+
+  .logo-text p {
+    font-size: 0.75rem;
+    margin: 0;
+  }
+
+  .elearning-nav {
+    gap: 0.25rem;
+    margin: 0;
+  }
+
+  .nav-item {
+    padding: 0.4rem 0.8rem !important;
+    font-size: 0.75rem !important;
+  }
+
+  .hero-section {
+    padding: 2rem 0.75rem;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero-content {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-text {
+    width: 100%;
+    padding: 0 0.75rem;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-text h2 {
+    font-size: 2rem;
+    text-align: center;
+    margin: 0 0 1rem 0;
+  }
+
+  .hero-text p {
+    font-size: 1rem;
+    text-align: center;
+    margin: 0 0 1.5rem 0;
+  }
+
+  .hero-stats {
+    gap: 1rem;
+    justify-content: center;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .stat-number {
+    font-size: 1.75rem;
+  }
+
+  .stat-label {
+    font-size: 0.8rem;
+  }
+
+  .cta-button {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    margin: 1rem 0 0 0;
+  }
+
+  .hero-visual {
+    padding: 0;
+    margin: 0;
+  }
+
+  .design-image {
+    padding: 0 0.75rem;
+    margin: 0 auto;
+  }
+
+  .design-image img {
+    margin: 0 auto;
+  }
+
+  .cacao-gallery {
+    padding: 2.5rem 0.75rem;
+    margin: 0;
+    width: 100%;
+  }
+
+  .cacao-gallery .container {
+    padding: 0;
+    margin: 0 auto;
+  }
+
+  .cacao-gallery .section-header {
+    padding: 0 0.75rem;
+    margin: 0 auto 2rem;
+  }
+
+  .cacao-gallery .section-header h2 {
+    font-size: 1.75rem;
+    text-align: center;
+    margin: 0 0 1rem 0;
+  }
+
+  .cacao-gallery .section-header p {
+    font-size: 0.9rem;
+    text-align: center;
+    margin: 0;
+  }
+
+  .courses-section {
+    padding: 2rem 0.75rem;
+    margin: 1rem auto;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .section-header {
+    padding: 0 0.75rem;
+    margin: 0 auto 2rem;
+  }
+
+  .section-header h3 {
+    font-size: 1.75rem;
+    text-align: center;
+    margin: 0 0 1rem 0;
+  }
+
+  .section-header p {
+    font-size: 0.9rem;
+    text-align: center;
+    margin: 0;
+  }
+
+  .courses-grid {
+    padding: 0 0.75rem;
+    margin: 0 auto;
+  }
+
+  .cacao-benefits-story {
+    padding: 2rem 0.75rem;
+    margin: 1rem auto;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .cacao-benefits-story .container {
+    padding: 0;
+    margin: 0 auto;
+  }
+
+  .cacao-benefits-story .section-header {
+    padding: 0 0.75rem;
+    margin: 0 auto 2rem;
+  }
+
+  .cacao-benefits-story .section-header h2 {
+    font-size: 1.75rem;
+    text-align: center;
+    margin: 0 0 1rem 0;
+  }
+
+  .benefits-content {
+    padding: 0 0.75rem;
+    margin: 0 auto;
+  }
+
+  .benefits-showcase {
+    padding: 0;
+    margin: 0 auto;
+  }
+
+  .timeline-content {
+    padding: 1.5rem 0.75rem;
+    margin: 0 auto;
+  }
+
+  .timeline-image {
+    height: 150px;
+  }
+
+  .benefit-card {
+    min-height: auto;
+    padding: 1.5rem 0.75rem;
+    margin: 0 auto;
+  }
+
+  .benefit-card h4 {
+    font-size: 1.1rem;
+  }
+
+  .benefit-card p {
+    font-size: 0.85rem;
+  }
+
+  .card-image {
+    height: 180px;
+  }
+
+  .cta-section {
+    padding: 1.5rem 0.75rem;
+    margin: 2rem auto;
+    width: 100%;
+  }
+
+  .cta-section h3 {
+    font-size: 1.2rem;
+    text-align: center;
+    margin: 0 0 1rem 0;
+  }
+
+  .cta-section p {
+    font-size: 0.85rem;
+    text-align: center;
+    margin: 0 0 1rem 0;
+  }
+
+  .quote-text {
+    font-size: 1.1rem;
+  }
+
+  .footer-content {
+    padding: 0 0.75rem;
+    margin: 0 auto;
+  }
+
+  .footer-section h4 {
+    font-size: 1rem;
+  }
+
+  .footer-section p,
+  .footer-section a {
+    font-size: 0.85rem;
+  }
+}
+
+/* Extra small devices (360px and below) */
+@media (max-width: 360px) {
+  .hero-text h2 {
+    font-size: 1.75rem;
+  }
+
+  .hero-text p {
+    font-size: 0.95rem;
+  }
+
+  .hero-stats {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .section-header h3,
+  .cacao-benefits-story .section-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .cta-button {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Featured Courses Section */
+.featured-courses {
+  padding: 5rem 0;
+  background: #F5F2E8;
+}
+
+.featured-courses .container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-header h2 {
+  color: #8B4513;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.section-header p {
+  color: #8B7355;
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.course-card {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 16px rgba(139, 69, 19, 0.1);
+  border: 1px solid #e9ecef;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.course-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(139, 69, 19, 0.15);
+}
+
+.course-icon {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.course-icon>div {
+  width: 60px;
+  height: 60px;
+  background: #8B4513;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.course-icon span {
+  color: white;
+  font-size: 1.5rem;
+}
+
+.course-card h3 {
+  color: #8B4513;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.course-card p {
+  color: #8B7355;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.course-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.course-meta span:first-child {
+  color: #8B4513;
+  font-weight: bold;
+}
+
+.course-meta span:last-child {
+  color: #8B7355;
+}
+
+.course-card .btn-primary {
+  display: inline-block;
+  background: #8B4513;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s ease;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+}
+
+.course-card .btn-primary:hover {
+  background: #70380f;
+}
+
+.view-all-courses {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.view-all-link {
+  display: inline-block;
+  padding: 1rem 2rem;
+  border: 2px solid #8B4513;
+  border-radius: 6px;
+  color: #8B4513;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.view-all-link:hover {
+  background: #8B4513;
+  color: white;
+}
+
+.cacao-benefits-story {
+  padding: 3rem 1.5rem;
+  margin: 2rem auto;
+}
+
+.cacao-benefits-story .benefits-header h2 {
+  font-size: 2rem;
+}
+
+.cacao-benefits-story .benefits-content {
+  grid-template-columns: 1fr;
+  gap: 3rem;
+}
+
+.cacao-benefits-story .cacao-visual img {
+  height: 300px;
+}
+
+.cacao-benefits-story .benefits-grid {
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.cacao-benefits-story .benefit-card {
+  padding: 1.5rem;
+}
+
+
+/* Cacao Benefits & Story Section */
+.cacao-benefits-story {
+  padding: 6rem 2rem;
+  background: #f9f5ee;
+  position: relative;
+  overflow: hidden;
+  border: 2px solid #d7ccc8;
+  border-radius: 20px;
+  margin: 2rem auto;
+  max-width: 1400px;
+  box-shadow: 0 8px 32px rgba(93, 64, 55, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.cacao-benefits-story .section-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.cacao-benefits-story .section-header h2 {
+  color: #5d4037;
+  font-size: 2.5rem;
+  margin: 0 auto 1rem;
+  font-weight: 700;
+  position: relative;
+  text-align: center;
+}
+
+.cacao-benefits-story .section-header h2::after {
+  content: '';
+  position: absolute;
+  width: 80px;
+  height: 4px;
+  background: #8d6e63;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+.cacao-benefits-story .section-header p {
+  color: #6b7280;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  text-align: center;
+}
+
+/* Story Timeline */
+.story-timeline {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto 4rem;
+  padding: 2rem 0;
+}
+
+.story-timeline::before {
+  content: '';
+  position: absolute;
+  width: 4px;
+  background-color: #d7ccc8;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -2px;
+  border-radius: 2px;
+}
+
+.timeline-item {
+  padding: 10px 40px;
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.timeline-item:nth-child(odd) {
+  left: 0;
+  padding-right: 40px;
+  padding-left: 40px;
+  text-align: center;
+}
+
+.timeline-item:nth-child(even) {
+  left: 0;
+  padding-left: 40px;
+  padding-right: 40px;
+  text-align: center;
+}
+
+.timeline-content {
+  padding: 30px 40px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.timeline-item:hover .timeline-content {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.timeline-item:hover .timeline-image {
+  transform: scale(1.02);
+}
+
+.timeline-content h3 {
+  color: #5d4037;
+  margin-bottom: 0.75rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.timeline-content p {
+  color: #6b7280;
+  line-height: 1.6;
+  margin: 0;
+  text-align: center;
+}
+
+/* Benefits Showcase */
+.benefits-showcase {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.benefit-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+.benefit-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
+
+.card-image {
+  height: 200px;
+  overflow: hidden;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.benefit-card:hover .card-image img {
+  transform: scale(1.05);
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  padding: 2rem;
+  text-align: center;
+}
+
+.card-content h3 {
+  color: #5d4037;
+  font-size: 1.3rem;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.card-content p {
+  color: #6b7280;
+  line-height: 1.6;
+  margin: 0.5rem 0;
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+/* Cacao Quote Card */
+.cta-section .cacao-quote-card {
+  background: rgba(255, 248, 240, 0.9);
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+  margin: 1.5rem auto;
+  max-width: 600px;
+  position: relative;
+  border: 1px solid rgba(93, 64, 55, 0.2);
+  box-shadow: 0 8px 32px rgba(45, 35, 20, 0.1);
+  text-align: center;
+}
+
+.quote-icon {
+  font-size: 4rem;
+  font-family: Georgia, serif;
+  color: #5d4037;
+  line-height: 1;
+  margin-bottom: -1.5rem;
+  margin-top: -1rem;
+  opacity: 0.7;
+}
+
+.quote-text {
+  font-size: 1.1rem;
+  font-style: italic;
+  line-height: 1.6;
+  margin: 1rem 0;
+  color: #3e2723;
+  position: relative;
+  z-index: 1;
+  font-weight: 500;
+}
+
+.quote-author {
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  color: #5d4037;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  margin-top: 1rem;
+  position: relative;
+  display: inline-block;
+  padding: 0 1.5rem;
+  font-style: italic;
+}
+
+.quote-author::before,
+.quote-author::after {
+  content: '~';
+  margin: 0 0.5rem;
+  color: #8d6e63;
+  font-weight: normal;
+}
+
+/* CTA Section */
+.cta-section {
+  text-align: center;
+  padding: 2.5rem 1.5rem;
+  background: #fff9f0;
+  /* Light cream background */
+  border-radius: 12px;
+  color: #3e2723;
+  /* Rich brown color */
+  margin-top: 3rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(93, 64, 55, 0.1);
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.cta-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('/cacao-pattern.png') center/cover;
+  opacity: 0.1;
+  z-index: 0;
+}
+
+.cta-section h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  margin-top: 0;
+  position: relative;
+  z-index: 1;
+  color: #3e2723;
+  /* Rich brown color */
+  text-shadow: none;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.cta-section p {
+  color: #5d4037;
+  /* Slightly lighter brown for paragraph */
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto 1.5rem;
+  position: relative;
+  z-index: 1;
+  opacity: 0.9;
+}
+
+.cta-button {
+  background: white;
+  color: #5d4037;
+  border: none;
+  padding: 0.8rem 2rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  margin-top: 1rem;
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  background: #f5f5f5;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+  .story-timeline::before {
+    left: 50px;
+  }
+
+  .timeline-item {
+    width: 100%;
+    padding-left: 90px;
+    padding-right: 0;
+    text-align: left;
+  }
+
+  .timeline-item:nth-child(odd),
+  .timeline-item:nth-child(even) {
+    left: 0;
+    padding-right: 0;
+    padding-left: 90px;
+    text-align: left;
+  }
+
+  .benefits-showcase {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .cta-section .cacao-quote-card {
+    padding: 0.5rem 0.5rem;
+    margin: 0.5rem auto;
+    max-width: 300px;
+    background: rgba(255, 248, 240, 0.95);
+  }
+
+  .quote-text {
+    font-size: 0.75rem;
+    line-height: 1.2;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .quote-icon {
+    font-size: 1.5rem;
+  }
+
+  .quote-author {
+    font-size: 0.65rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .cacao-benefits-story {
+    padding: 4rem 1.5rem;
+  }
+
+  .cacao-benefits-story .section-header h2 {
+    font-size: 2rem;
+  }
+
+  .benefits-showcase {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-section {
+    padding: 2rem 1.5rem;
+  }
+
+  .cta-section h3 {
+    font-size: 1.4rem;
+  }
+}
+
+.cacao-benefits-story .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.benefits-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.benefits-header h2 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #5a2d0e;
+  margin-bottom: 1.5rem;
+  position: relative;
+  display: inline-block;
+}
+
+.benefits-header h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, #8B4513, #D2691E);
+  border-radius: 2px;
+}
+
+.benefits-header p {
+  font-size: 1.2rem;
+  color: #5a4a42;
+  max-width: 700px;
+  margin: 0 auto 2rem;
+  line-height: 1.6;
+}
+
+.benefits-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  margin-bottom: 4rem;
+  align-items: center;
+}
+
+.cacao-story {
+  padding: 2.5rem;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.cacao-story h3 {
+  font-size: 1.8rem;
+  color: #5a2d0e;
+  margin-bottom: 1.5rem;
+  line-height: 1.3;
+}
+
+.cacao-story p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #5a4a42;
+  margin-bottom: 1.5rem;
+}
+
+.cacao-visual {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+  height: 400px;
+}
+
+.cacao-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.cacao-visual:hover img {
+  transform: scale(1.05);
+}
+
+.cacao-visual-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2rem;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+  color: white;
+}
+
+.cacao-visual-overlay p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.cacao-visual-overlay p:first-child {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 4rem;
+}
+
+.benefit-card {
+  background: white;
+  padding: 2.5rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.benefit-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #8B4513, #D2691E);
+}
+
+.benefit-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(139, 69, 19, 0.15);
+}
+
+.benefit-card h4 {
+  font-size: 1.4rem;
+  color: #5a2d0e;
+  margin-bottom: 1rem;
+  position: relative;
+  padding-top: 1.5rem;
+}
+
+.benefit-card p {
+  color: #5a4a42;
+  line-height: 1.7;
+  font-size: 1.05rem;
+  margin: 0;
+}
+
+/* Footer Section */
+.about-footer {
+  background-color: #8b4d00;
+  color: white;
+  padding: 4rem 0 2rem;
+}
+
+.about-footer .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.footer-section h4 {
+  color: white;
+  margin-bottom: 1.5rem;
+  font-size: 1.2rem;
+}
+
+.footer-section p {
+  color: #e0e0e0;
+  line-height: 1.6;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 0.8rem;
+}
+
+.footer-section a {
+  color: #e0e0e0;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.social-links a {
+  display: inline-block;
+  padding: 0.5rem 0;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-bottom p {
+  color: #e0e0e0;
+  margin: 0;
+  font-size: 0.9rem;
+
+  .benefit-card h4 {
+    font-size: 1.2rem;
+  }
+
+  .benefit-card p {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-content {
+    padding: 0 1rem;
+  }
+
+  .logo-text h1 {
+    font-size: 1.5rem;
+  }
+
+  .logo-icon {
+    width: 56px;
+    height: 56px;
+  }
+
+  .hero-section {
+    padding: 3rem 1rem;
+  }
+
+  .hero-text h2 {
+    font-size: 2rem;
+  }
+
+  .hero-text p {
+    font-size: 1.1rem;
+  }
+
+  .hero-stats {
+    gap: 1.5rem;
+  }
+
+  .stat-number {
+    font-size: 2rem;
+  }
+
+  .cacao-tree-image {
+    width: 280px;
+    height: 380px;
+  }
+
+  .courses-section {
+    padding: 2.5rem 1rem;
+    margin: 1.5rem auto;
+  }
+
+  .section-header h3 {
+    font-size: 2rem;
+  }
+
+  .section-header p {
+    font-size: 1rem;
+  }
+
+  .course-card {
+    padding: 1.5rem;
+  }
+
+  .path-container h3 {
+    font-size: 2rem;
+  }
+
+  .step {
+    min-width: 140px;
+    padding: 1.25rem;
+  }
+
+  .step-icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .featured-courses {
+    padding: 2.5rem 1rem;
+    margin: 1.5rem auto;
+  }
+
+  .featured-courses .section-header h2 {
+    font-size: 1.8rem;
+  }
+
+  .featured-courses .section-header p {
+    font-size: 1rem;
+  }
+
+  .cacao-benefits-story {
+    padding: 2.5rem 1rem;
+    margin: 1.5rem auto;
+  }
+
+  .cacao-benefits-story .benefits-header h2 {
+    font-size: 1.8rem;
+  }
+
+  .cacao-benefits-story .benefits-header p {
+    font-size: 1rem;
+  }
+
+  .cacao-benefits-story .cacao-visual img {
+    height: 250px;
+  }
+
+  .cacao-benefits-story .cacao-story h3 {
+    font-size: 1.5rem;
+  }
+}

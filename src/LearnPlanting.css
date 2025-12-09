@@ -1,0 +1,1114 @@
+/* LearnPlanting Page Styles */
+.learn-planting-page {
+  font-family: 'Segoe UI', 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  color: #3C2414; /* dark brown text */
+  line-height: 1.65;
+  min-height: 100vh;
+  background: #f9f5f1; /* light cream background */
+  padding: 20px 2rem 2rem;
+}
+
+/* Login Modal Styles */
+.login-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(8px);
+}
+
+.login-modal {
+  background: white;
+  border-radius: 20px;
+  padding: 2rem;
+  max-width: 320px;
+  width: 90%;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(60, 36, 20, 0.08);
+  animation: modalSlideIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-30px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.login-modal-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.login-icon {
+  font-size: 2.5rem;
+  color: #8B4513;
+  margin-bottom: 1rem;
+  opacity: 0.8;
+}
+
+.login-modal-header h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2c2c2c;
+  letter-spacing: -0.02em;
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  color: #999;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+}
+
+.modal-close-btn:hover {
+  background: #f5f5f5;
+  color: #666;
+  transform: rotate(90deg);
+}
+
+.login-modal-content {
+  text-align: center;
+}
+
+.login-modal-content p {
+  margin: 0 0 2rem 0;
+  color: #666;
+  text-align: center;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.login-modal-buttons {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+.modal-btn {
+  padding: 0.75rem 1.25rem;
+  border-radius: 12px;
+  font-weight: 500;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+  min-width: 90px;
+  position: relative;
+  overflow: hidden;
+}
+
+.modal-btn-cancel {
+  background: #f8f9fa;
+  color: #666;
+  border: 1px solid #e9ecef;
+}
+
+.modal-btn-cancel:hover {
+  background: #e9ecef;
+  transform: translateY(-1px);
+}
+
+.modal-btn-login {
+  background: #8B4513;
+  color: white;
+  box-shadow: 0 4px 15px rgba(139, 69, 19, 0.2);
+}
+
+.modal-btn-login:hover {
+  background: #6B3410;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(139, 69, 19, 0.3);
+}
+
+.modal-btn-login::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.modal-btn-login:hover::before {
+  left: 100%;
+}
+
+/* Mobile Responsive for Modal */
+@media (max-width: 768px) {
+  .login-modal {
+    width: 92%;
+    padding: 1.5rem;
+    margin: 1rem;
+  }
+  
+  .login-icon {
+    font-size: 2rem;
+  }
+  
+  .login-modal-header h3 {
+    font-size: 1rem;
+  }
+  
+  .login-modal-content p {
+    font-size: 0.85rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .login-modal-buttons {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .modal-btn {
+    width: 100%;
+    padding: 0.875rem;
+  }
+}
+
+/* Back Button */
+.back-button-container {
+  max-width: 1200px;
+  margin: 0 auto 20px;
+  padding: 0 20px;
+}
+
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #8B4513; /* saddle brown */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.back-button:hover {
+  background: #A0522D; /* sienna */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.back-button:active {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Hero */
+.planting-hero {
+  min-height: 50vh;
+  background: linear-gradient(135deg, #8B4513 0%, #A0522D 100%); /* saddle brown to sienna */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 4rem 2rem;
+  border-radius: 0 0 30px 30px;
+  box-shadow: 0 8px 25px rgba(45, 90, 61, 0.15);
+  color: #ffffff;
+  margin-bottom: 2rem;
+}
+
+.planting-hero h1 {
+  font-size: 3.2rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  text-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+  font-family: 'Segoe UI', 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+}
+
+.planting-hero p {
+  font-size: 1.3rem;
+  max-width: 750px;
+  margin: 0 auto;
+  opacity: 0.95;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  font-family: 'Segoe UI', 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.7;
+}
+
+/* Modules Section */
+.planting-modules {
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, #f8e0c9 0%, #fefefe 100%);
+  text-align: center;
+}
+
+.planting-modules h2 {
+  font-size: 2.6rem;
+  margin-bottom: 1.2rem;
+  color: #964400;
+  font-weight: 700;
+  font-family: 'Segoe UI', 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+}
+
+.modules-intro {
+  font-size: 1.2rem;
+  color: #1f1f1f;
+  margin-bottom: 3.5rem;
+  line-height: 1.7;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: 'Segoe UI', 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+}
+
+.modules-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.8rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.module-card {
+  background: linear-gradient(135deg, #ffffff 0%, #f9faf8 100%);
+  padding: 2rem;
+  border-radius: 16px;
+  text-align: left;
+  border-top: 4px solid #8B4513; /* saddle brown accent */
+  box-shadow: 0 4px 20px rgba(139, 69, 19, 0.15); /* saddle brown shadow */
+  transition: all 0.3s ease;
+}
+
+.module-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(55, 55, 55, 0.15);
+}
+
+.module-card h3 {
+  font-size: 1.3rem;
+  color: #000000;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  font-family: 'Segoe UI', 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+}
+
+.module-card p {
+  font-size: 1rem;
+  color: #000000;
+  margin-bottom: 1.4rem;
+  line-height: 1.7;
+  font-family: 'Segoe UI', 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+}
+
+.module-btn {
+  display: inline-block;
+  padding: 0.8rem 1.6rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 10px;
+  background: #893e09; /* saddle brown */
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 12px rgba(139, 69, 19, 0.25); /* saddle brown shadow */
+  font-family: 'Segoe UI', 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+}
+
+.module-btn:hover {
+  background: linear-gradient(135deg, #A0522D 0%, #8B4513 100%); /* sienna to saddle brown */
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(139, 69, 19, 0.25); /* saddle brown shadow */
+}
+
+/* Learning Objectives Section */
+.learning-objectives {
+  padding: 6rem 2rem;
+  background: #ffffff;
+  text-align: center;
+}
+
+.learning-objectives h2 {
+  font-size: 2.6rem;
+  margin-bottom: 1.2rem;
+  color: #a05d00;
+  font-weight: 700;
+  font-family: 'Segoe UI', 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+}
+
+.objectives-intro {
+  font-size: 1.2rem;
+  color: #000000;
+  max-width: 750px;
+  margin: 0 auto 4rem;
+  line-height: 1.7;
+  font-family: 'Segoe UI', 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+}
+
+.objectives-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.8rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.objective-card {
+  background: linear-gradient(135deg, #ffffff 0%, #ffffff 100%);
+  padding: 2rem;
+  border-radius: 16px;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08); /* saddle brown shadow */
+  font-family: 'Segoe UI', 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+}
+
+.objective-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(139, 69, 19, 0.12); /* saddle brown shadow */
+  border-color: #be5500;
+}
+
+.objective-icon {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+}
+
+.objective-card h3 {
+  font-size: 1.4rem;
+  color: #a64800dc;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  font-family: 'Segoe UI', 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+}
+
+.objective-card p {
+  color: #070707;
+  line-height: 1.7;
+  font-size: 1rem;
+  font-family: 'Segoe UI', 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Learning Benefits Section */
+.learning-benefits {
+  padding: 6rem 2rem;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  text-align: center;
+}
+
+.learning-benefits h2 {
+  font-size: 2.6rem;
+  margin-bottom: 1.2rem;
+  color: #a64800dc;
+  font-weight: 700;
+  font-family: 'Segoe UI', 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 3.5rem auto 0;
+}
+
+.benefit-item {
+  background: linear-gradient(135deg, #ffffff 0%, #f9faf8 100%);
+  padding: 2rem;
+  border-radius: 16px;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(139, 69, 19, 0.08); /* saddle brown shadow */
+  font-family: 'Segoe UI', 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+}
+
+.benefit-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(139, 69, 19, 0.12); /* saddle brown shadow */
+}
+
+.benefit-number {
+  width: 80px;
+  height: 80px;
+  background: #8B4513; /* saddle brown */
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 0 auto 1.5rem;
+  box-shadow: 0 3px 10px rgba(45, 90, 61, 0.2);
+}
+
+.benefit-item h4 {
+  font-size: 1.3rem;
+  color: #ad5100;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  font-family: 'Segoe UI', 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+}
+
+.benefit-item p {
+  color: #0b0b0b;
+  line-height: 1.7;
+  font-size: 1rem;
+  font-family: 'Segoe UI', 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Learning Path Section */
+.learning-path {
+  padding: 5rem 2rem;
+  background: linear-gradient(135deg, #ffffff 0%, #f9faf8 100%);
+  text-align: center;
+}
+
+.learning-path h2 {
+  font-size: 2.6rem;
+  margin-bottom: 1.2rem;
+  color: #aa5200;
+  font-weight: 700;
+}
+
+.path-intro {
+  font-size: 1.2rem;
+  color: #4a5a4c;
+  max-width: 650px;
+  margin: 0 auto 4rem;
+  line-height: 1.7;
+}
+
+.path-steps {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.path-step {
+  background: linear-gradient(135deg, #f9faf8 0%, #ffffff 100%);
+  padding: 2rem;
+  border-radius: 16px;
+  text-align: center;
+  min-width: 200px;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  box-shadow: 0 4px 15px rgba(139, 69, 19, 0.08); /* saddle brown shadow */
+}
+
+.path-step:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(139, 69, 19, 0.12); /* saddle brown shadow */
+  border-color: #844200;
+}
+
+.step-number {
+  width: 50px;
+  height: 50px;
+  background: #8B4513; /* saddle brown */
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 0 auto 1rem;
+  box-shadow: 0 3px 8px rgba(45, 90, 61, 0.2);
+}
+
+.path-step h4 {
+  font-size: 1.3rem;
+  color: #965d00;
+  margin-bottom: 0.9rem;
+  font-weight: 600;
+}
+
+.path-step p {
+  color: #1d1d1d;
+  line-height: 1.7;
+  font-size: 0.95rem;
+}
+
+.path-arrow {
+  font-size: 2rem;
+  color: #303030;
+  opacity: 0.9;
+  margin: 0 1rem;
+}
+
+/* Success Stories Section */
+.success-stories {
+  padding: 6rem 2rem;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  text-align: center;
+}
+
+.success-stories h2 {
+  font-size: 2.6rem;
+  margin-bottom: 1.2rem;
+  color: #934700;
+  font-weight: 700;
+}
+
+.stories-intro {
+  font-size: 1.2rem;
+  color: #292929;
+  max-width: 650px;
+  margin: 0 auto 4rem;
+  line-height: 1.7;
+}
+
+.stories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.story-card {
+  background: linear-gradient(135deg, #ffffff 0%, #f9faf8 100%);
+  padding: 2rem;
+  border-radius: 16px;
+  transition: all 0.3s ease;
+  text-align: left;
+  box-shadow: 0 4px 15px rgba(139, 69, 19, 0.08); /* saddle brown shadow */
+  border-left: 4px solid #c56e04;
+}
+
+.story-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(139, 69, 19, 0.12); /* saddle brown shadow */
+}
+
+.story-quote {
+  font-size: 1.1rem;
+  color: #040404;
+  font-style: italic;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.story-author {
+  border-top: 1px solid rgba(139, 69, 19, 0.15); /* saddle brown border */
+  padding-top: 1rem;
+}
+
+.story-author strong {
+  display: block;
+  color: #895200;
+  font-size: 1.1rem;
+  margin-bottom: 0.3rem;
+  font-weight: 600;
+}
+
+.story-author span {
+  color: #7d5300;
+  font-size: 0.95rem;
+}
+
+/* FAQ Section */
+.faq-section {
+  padding: 6rem 2rem;
+  background: white;
+  text-align: center;
+}
+
+.faq-section h2 {
+  font-size: 2.6rem;
+  margin-bottom: 1.2rem;
+  color: #a64e00;
+  font-weight: 700;
+}
+
+.faq-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 3.5rem auto 0;
+  text-align: left;
+}
+
+.faq-item {
+  background: linear-gradient(135deg, #f9faf8 0%, #ffffff 100%);
+  padding: 2rem;
+  border-radius: 16px;
+  border-left: 4px solid #bf6900;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(139, 69, 19, 0.08); /* saddle brown shadow */
+}
+
+.faq-item:hover {
+  background: linear-gradient(135deg, #ffffff 0%, #f9faf8 100%);
+  box-shadow: 0 8px 25px rgba(139, 69, 19, 0.12); /* saddle brown shadow */
+}
+
+.faq-item h4 {
+  color: #a74e00;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.faq-item p {
+  color: #272727;
+  line-height: 1.7;
+  font-size: 1rem;
+}
+
+/* CTA Section */
+.planting-cta {
+  background: linear-gradient(135deg, #A0522D 0%, #8B4513 100%); /* sienna to saddle brown */
+  color: white;
+  text-align: center;
+  padding: 4rem 2rem;
+  margin-top: 3rem;
+  border-radius: 20px;
+  box-shadow: 0 6px 20px rgba(59, 59, 59, 0.2);
+}
+
+.planting-cta .container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.planting-cta h2 {
+  font-size: 2.4rem;
+  margin-bottom: 1.2rem;
+  font-weight: 700;
+}
+
+.planting-cta p {
+  font-size: 1.1rem;
+  margin-bottom: 2.5rem;
+  opacity: 0.95;
+  line-height: 1.7;
+}
+
+.cta-button {
+  padding: 1rem 2.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #ddb502 0%, #ddb502 100%);
+  color: #1f2937;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
+}
+
+.cta-button:hover {
+  background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(47, 30, 0, 0.5);
+}
+
+/* Responsive Design */
+
+/* Large tablets and small desktops (1024px and below) */
+@media (max-width: 1024px) {
+  .learn-planting-page {
+    padding: 20px 1.5rem 2rem;
+  }
+
+  .planting-hero h1 {
+    font-size: 2.8rem;
+  }
+
+  .modules-grid {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  }
+
+  .objectives-grid {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+}
+
+/* Tablets (768px and below) */
+@media (max-width: 768px) {
+  .learn-planting-page {
+    padding-top: 80px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .planting-hero {
+    padding: 3rem 1.5rem;
+    min-height: 40vh;
+  }
+
+  .planting-hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .planting-hero p {
+    font-size: 1.1rem;
+  }
+
+  .planting-modules {
+    padding: 3rem 1.5rem;
+  }
+
+  .planting-modules h2 {
+    font-size: 2rem;
+  }
+
+  .modules-intro {
+    font-size: 1.1rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .modules-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .module-card {
+    padding: 1.5rem;
+  }
+
+  .learning-objectives,
+  .learning-path,
+  .success-stories,
+  .faq-section {
+    padding: 4rem 1.5rem;
+  }
+
+  .learning-objectives h2,
+  .learning-path h2,
+  .success-stories h2,
+  .faq-section h2 {
+    font-size: 2rem;
+  }
+
+  .objectives-grid,
+  .benefits-grid,
+  .stories-grid,
+  .faq-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .path-steps {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .path-arrow {
+    transform: rotate(90deg);
+    margin: 0.5rem 0;
+  }
+
+  .planting-cta {
+    padding: 3rem 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .planting-cta h2 {
+    font-size: 2rem;
+  }
+
+  .planting-cta p {
+    font-size: 1rem;
+  }
+
+  .cta-button {
+    padding: 0.8rem 1.8rem;
+    font-size: 0.95rem;
+  }
+
+  .objective-card,
+  .benefit-item,
+  .path-step,
+  .story-card,
+  .faq-item {
+    padding: 1.5rem;
+  }
+}
+
+/* Mobile devices (480px and below) */
+@media (max-width: 480px) {
+  .learn-planting-page {
+    padding-top: 70px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .planting-hero {
+    padding: 2.5rem 1rem;
+    min-height: 35vh;
+  }
+
+  .planting-hero h1 {
+    font-size: 1.75rem;
+  }
+
+  .planting-hero p {
+    font-size: 1rem;
+  }
+
+  .planting-modules {
+    padding: 2.5rem 1rem;
+  }
+
+  .planting-modules h2 {
+    font-size: 1.75rem;
+  }
+
+  .modules-intro {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .module-card {
+    padding: 1.25rem;
+  }
+
+  .module-card h3 {
+    font-size: 1.15rem;
+  }
+
+  .module-card p {
+    font-size: 0.95rem;
+  }
+
+  .module-btn {
+    padding: 0.7rem 1.4rem;
+    font-size: 0.9rem;
+  }
+
+  .learning-objectives,
+  .learning-path,
+  .success-stories,
+  .faq-section {
+    padding: 3rem 1rem;
+  }
+
+  .learning-objectives h2,
+  .learning-path h2,
+  .success-stories h2,
+  .faq-section h2 {
+    font-size: 1.75rem;
+  }
+
+  .objectives-intro,
+  .path-intro,
+  .stories-intro {
+    font-size: 1rem;
+  }
+
+  .objective-icon {
+    font-size: 2.5rem;
+  }
+
+  .objective-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .objective-card p,
+  .benefit-item p,
+  .path-step p,
+  .story-quote,
+  .faq-item p {
+    font-size: 0.95rem;
+  }
+
+  .path-step h4 {
+    font-size: 1.15rem;
+  }
+
+  .step-number {
+    width: 45px;
+    height: 45px;
+    font-size: 1.2rem;
+  }
+
+  .story-author strong {
+    font-size: 1rem;
+  }
+
+  .story-author span {
+    font-size: 0.85rem;
+  }
+
+  .faq-item h4 {
+    font-size: 1.1rem;
+  }
+
+  .planting-cta {
+    padding: 2.5rem 1rem;
+  }
+
+  .planting-cta h2 {
+    font-size: 1.75rem;
+  }
+
+  .planting-cta p {
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+  }
+
+  .cta-button {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Extra small devices (360px and below) */
+@media (max-width: 360px) {
+  .learn-planting-page {
+    padding-top: 70px;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  .planting-hero {
+    padding: 2rem 0.75rem;
+  }
+
+  .planting-hero h1 {
+    font-size: 1.5rem;
+  }
+
+  .planting-hero p {
+    font-size: 0.9rem;
+  }
+
+  .planting-modules {
+    padding: 2rem 0.75rem;
+  }
+
+  .planting-modules h2,
+  .learning-objectives h2,
+  .learning-path h2,
+  .success-stories h2,
+  .faq-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .module-card,
+  .objective-card,
+  .path-step,
+  .story-card,
+  .faq-item {
+    padding: 1rem;
+  }
+
+  .cta-button {
+    padding: 0.65rem 1.25rem;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .learning-objectives {
+    padding: 4rem 1.5rem;
+  }
+
+  .learning-objectives h2 {
+    font-size: 2rem;
+  }
+
+  .objectives-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .learning-benefits {
+    padding: 4rem 1.5rem;
+  }
+
+  .learning-benefits h2 {
+    font-size: 2rem;
+  }
+
+  .benefits-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .learning-path {
+    padding: 4rem 1.5rem;
+  }
+
+  .learning-path h2 {
+    font-size: 2rem;
+  }
+
+  .path-steps {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .path-arrow {
+    transform: rotate(90deg);
+    margin: 0.5rem 0;
+  }
+
+  .success-stories {
+    padding: 4rem 1.5rem;
+  }
+
+  .success-stories h2 {
+    font-size: 2rem;
+  }
+
+  .stories-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .faq-section {
+    padding: 4rem 1.5rem;
+  }
+
+  .faq-section h2 {
+    font-size: 2rem;
+  }
+
+  .faq-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .objective-card,
+  .benefit-item,
+  .path-step,
+  .story-card,
+  .faq-item {
+    padding: 1.5rem;
+  }
+}

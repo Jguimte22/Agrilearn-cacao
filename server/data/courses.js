@@ -1,0 +1,102 @@
+const courses = [
+  {
+    id: 'cacao-basics',
+    slug: 'cacao-basics',
+    title: 'Cacao Basics',
+    description: 'Learn the fundamentals of cacao cultivation, including plant biology, ideal growing conditions, and basic care requirements for healthy cacao trees.',
+    modules: 4,
+    status: 'active',
+    image: 'CacaoBacics.png',
+    category: 'Beginner',
+    duration: '3-4 weeks',
+    difficulty: 'Beginner',
+    rating: 4.5,
+    students: 1200
+  },
+  {
+    id: 'planting-techniques',
+    slug: 'planting-techniques',
+    title: 'Planting Techniques',
+    description: 'Master various cacao planting methods, including seed propagation, nursery management, and field establishment for optimal growth and yield.',
+    modules: 5,
+    status: 'active',
+    image: 'PlantingTech.png',
+    category: 'Beginner',
+    duration: '4-5 weeks',
+    difficulty: 'Beginner',
+    rating: 4.6,
+    students: 980
+  },
+  {
+    id: 'harvest-processing',
+    slug: 'harvest-processing',
+    title: 'Harvest & Processing',
+    description: 'Learn proper harvesting techniques, post-harvest handling, and primary processing methods to ensure high-quality cacao beans.',
+    modules: 6,
+    status: 'active',
+    image: 'Harvest.png',
+    category: 'Intermediate',
+    duration: '5-6 weeks',
+    difficulty: 'Intermediate',
+    rating: 4.7,
+    students: 850
+  },
+  {
+    id: 'pest-disease',
+    slug: 'pest-disease',
+    title: 'Pest & Disease Management',
+    description: 'Identify, prevent, and control common cacao pests and diseases using integrated pest management strategies for sustainable farming.',
+    modules: 5,
+    status: 'active',
+    image: 'PestDisease.png',
+    category: 'Intermediate',
+    duration: '4-5 weeks',
+    difficulty: 'Intermediate',
+    rating: 4.6,
+    students: 720
+  },
+  {
+    id: 'cloning-techniques',
+    slug: 'cloning-techniques',
+    title: 'Types of Cloning in Cacao',
+    description: 'Explore various cacao cloning methods including grafting, budding, and tissue culture for propagating superior cacao varieties.',
+    modules: 4,
+    status: 'active',
+    image: 'CacaoModernFarming.png',
+    category: 'Advanced',
+    duration: '4-6 weeks',
+    difficulty: 'Advanced',
+    rating: 4.8,
+    students: 650
+  },
+  {
+    id: 'care-management',
+    slug: 'care-management',
+    title: 'Care Management',
+    description: 'Comprehensive guide to cacao tree care including pruning, irrigation, and nutrient management for optimal growth and productivity.',
+    modules: 5,
+    status: 'active',
+    image: 'CareManagement.png',
+    category: 'Intermediate',
+    duration: '4-5 weeks',
+    difficulty: 'Intermediate',
+    rating: 4.5,
+    students: 900
+  },
+  {
+    id: 'gap-practices',
+    slug: 'gap-practices',
+    title: 'GAP (Good Agricultural Practices)',
+    description: 'Implement Good Agricultural Practices for sustainable cacao farming, focusing on environmental protection and worker safety.',
+    modules: 6,
+    status: 'active',
+    image: 'GAP.png',
+    category: 'Advanced',
+    duration: '5-7 weeks',
+    difficulty: 'Advanced',
+    rating: 4.9,
+    students: 780
+  }
+];
+
+module.exports = courses;

@@ -1,0 +1,497 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --nude-brown: #f5ebe0;
+  --nude-brown-dark: #d05e00;
+  --nude-green: #c9d6b4;
+  --nude-green-dark: #9ba87c;
+  --button-brown: #ca6800;
+  --button-hover: #ff7b00a1;
+  --text-dark: #bf5f00;
+  --text-light: #7a6b5c;
+  --white: #ffffff;
+  --border-color: #e3d5ca;
+  --shadow: 0 20px 100px rgba(14, 2, 2, 0.08);
+  --radius: 16px;
+  --transition: all 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background-color: var(--nude-brown);
+  color: var(--text-dark);
+  line-height: 1.6;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Back to Home Button */
+.back-to-home {
+  position: fixed;
+  top: 1.5rem;
+  left: 1.5rem;
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--nude-brown-dark);
+  padding: 0.6rem 1.2rem 0.6rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: var(--transition);
+  z-index: 1000;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+  font-family: 'Poppins', sans-serif;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: none;
+}
+
+.back-to-home:hover {
+  background: rgb(181, 79, 0);
+  transform: translateX(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  color: white;
+}
+
+.back-to-home:active {
+  transform: translateX(0);
+}
+
+/* Layout */
+.signup-container {
+  position: relative;
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* Illustration Side */
+.signup-illustration {
+  flex: 1;
+  min-height: 300px;
+  max-height: 100vh;
+  background: url('/cacao_background.png') center/cover no-repeat;
+  position: relative;
+  display: none;
+  overflow: hidden;
+}
+
+.illustration-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2rem;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+  color: white;
+  text-align: center;
+}
+
+.illustration-overlay h2 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.illustration-overlay p {
+  font-size: 1rem;
+  opacity: 0.9;
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+/* Form Side */
+.signup-form-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6rem 2rem 2rem;
+  background-color: var(--white);
+  overflow-y: auto;
+  min-height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  margin: 0;
+}
+
+.signup-card {
+  width: 100%;
+  max-width: 500px;
+  min-width: 0; /* Prevent flex item from overflowing */
+  padding: 2.5rem;
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  animation: fadeIn 0.6s ease-out;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+/* Form Header */
+.form-header {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.form-header h1 {
+  font-size: 1.8rem;
+  color: var(--nude-brown-dark);
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.subtitle {
+  color: var(--nude-green-dark);
+  font-size: 1rem;
+}
+
+/* Form Elements */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--text-dark);
+  margin-bottom: 0.5rem;
+}
+
+.form-row {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.half-width {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Input Fields */
+.input-group {
+  position: relative;
+  margin-bottom: 0.5rem;
+}
+
+.input-group input,
+.input-group select {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  font-size: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  background-color: white !important;
+  color: #000000 !important;
+  font-family: 'Poppins', sans-serif;
+  -webkit-text-fill-color: #000000 !important;
+  transition: var(--transition);
+}
+
+.input-group select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23999%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.7em top 50%;
+  background-size: 0.65em auto;
+  padding-right: 2.5em;
+}
+
+/* Force black text in all input fields */
+.signup-card input,
+.signup-card select,
+.signup-card input[type="email"],
+.signup-card input[type="password"],
+.signup-card input[type="text"],
+.signup-card input[type="tel"],
+.signup-card input[type="number"],
+.signup-card input:-webkit-autofill,
+.signup-card input:-webkit-autofill:hover,
+.signup-card input:-webkit-autofill:focus,
+.signup-card input:-webkit-autofill:active {
+  color: #000000 !important;
+  -webkit-text-fill-color: #000000 !important;
+}
+
+/* Focus state */
+.input-group input:focus,
+.input-group select:focus,
+.input-group input[type="email"]:focus,
+.input-group input[type="password"]:focus,
+.input-group input[type="text"]:focus {
+  outline: none;
+  border-color: var(--nude-green);
+  box-shadow: 0 0 0 3px rgba(201, 214, 180, 0.3);
+}
+
+/* Remove autofill background and ensure black text */
+.input-group input:-webkit-autofill,
+.input-group input:-webkit-autofill:hover,
+.input-group input:-webkit-autofill:focus,
+.input-group input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px white inset !important;
+  -webkit-text-fill-color: #000000 !important;
+  color: #000000 !important;
+  transition: background-color 5000s ease-in-out 0s;
+  font-size: 1rem !important;
+  caret-color: #000000 !important;
+}
+
+/* For Firefox */
+@-moz-document url-prefix() {
+  .input-group input,
+  .input-group select {
+    color: black !important;
+  }
+}
+
+.input-group input::placeholder {
+  color: #9ca3af;
+  font-size: 0.9375rem;
+}
+
+/* Password Input Wrapper */
+.password-input {
+  position: relative;
+}
+
+/* Toggle Password Button */
+.toggle-password {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--nude-green-dark);
+  font-size: 1.25rem;
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 4px;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.toggle-password:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  color: var(--nude-brown-dark);
+}
+
+/* Buttons */
+.auth-button {
+  display: block;
+  width: 100%;
+  padding: 1rem 1.5rem;
+  background-color: var(--nude-brown-dark);
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 2rem 0 1rem;
+  letter-spacing: 0.3px;
+  font-family: 'Poppins', sans-serif;
+  text-transform: uppercase;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.auth-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: 0.5s;
+}
+
+.auth-button:hover {
+  background-color: var(--button-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(180, 134, 88, 0.4);
+}
+
+.auth-button:hover::before {
+  left: 100%;
+}
+
+.auth-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.auth-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(208, 94, 0, 0.3);
+}
+
+.text-button {
+  background: none;
+  border: none;
+  color: var(--nude-brown-dark);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  transition: var(--transition);
+  text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+}
+
+.text-button:hover {
+  text-decoration: underline;
+  color: var(--button-hover);
+}
+
+/* Form Footer */
+.form-footer {
+  text-align: center;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-color);
+  font-size: 0.9375rem;
+  color: var(--text-light);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (min-width: 992px) {
+  .signup-illustration {
+    display: block;
+    min-height: 100vh;
+    position: sticky;
+    top: 0;
+  }
+  
+  .signup-form-container {
+    padding: 4rem 2rem;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .signup-card {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 991px) {
+  .signup-container {
+    flex-direction: column;
+  }
+  
+  .signup-illustration {
+    display: none;
+  }
+  
+  .signup-form-container {
+    padding: 2rem 1rem;
+    min-height: 100vh;
+    background: url('/cacao_background.png') center center/cover no-repeat;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .signup-form-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+  }
+  
+  .signup-card {
+    padding: 2rem 1.5rem;
+    box-shadow: none;
+    max-width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+    z-index: 2;
+  }
+  
+  .form-header h1 {
+    font-size: 1.5rem;
+  }
+  
+  .subtitle {
+    font-size: 0.9375rem;
+  }
+  
+  .form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+  
+  .half-width {
+    width: 100%;
+  }
+  
+  .input-group input,
+  .input-group select {
+    padding: 0.75rem 1rem;
+  }
+  
+  .auth-button {
+    padding: 0.875rem 1.25rem;
+  }
+}
+
+/* For very small devices */
+@media (max-width: 400px) {
+  .signup-card {
+    padding: 1.5rem 1rem;
+  }
+  
+  .form-header h1 {
+    font-size: 1.4rem;
+  }
+  
+  .form-group {
+    margin-bottom: 1.25rem;
+  }
+}

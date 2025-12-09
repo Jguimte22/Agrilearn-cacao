@@ -1,0 +1,35 @@
+/* 
+GAME HEADERS FIX - Add this CSS to override the problematic header hiding rules
+Place this CSS file AFTER PestDiseaseGame.css in your imports or add these rules to your main CSS
+*/
+
+/* RESTORE ALL GAME HEADERS - Override the problematic hiding rules */
+.pest-game-header,
+.game-header,
+.game-header-enhanced,
+div[class*="game-header"] {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  height: auto !important;
+  width: auto !important;
+  overflow: visible !important;
+}
+
+/* Ensure specific game headers are visible */
+.pest-game-header {
+  display: flex !important;
+  justify-content: space-between;
+  align-items: flex-start;
+  background: linear-gradient(145deg, rgba(139, 69, 19, 0.95), rgba(101, 67, 33, 0.95));
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 15px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 8px 25px rgba(139, 69, 19, 0.3);
+  border: 2px solid rgba(255, 215, 0, 0.3);
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  backdrop-filter: blur(10px);
+}

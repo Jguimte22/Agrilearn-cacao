@@ -1,0 +1,88 @@
+.otp-display-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: white;
+  border: 2px solid #4CAF50;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  z-index: 1000;
+  min-width: 300px;
+  max-width: 400px;
+}
+
+.otp-display-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #eee;
+}
+
+.otp-display-header h3 {
+  margin: 0;
+  color: #333;
+  font-size: 16px;
+}
+
+.clear-btn {
+  background: #f44336;
+  color: white;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.clear-btn:hover {
+  background: #d32f2f;
+}
+
+.otp-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.otp-item:last-child {
+  border-bottom: none;
+}
+
+.otp-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.otp-code {
+  font-size: 18px;
+  font-weight: bold;
+  color: #4CAF50;
+  font-family: monospace;
+}
+
+.otp-phone {
+  font-size: 12px;
+  color: #666;
+}
+
+.otp-time {
+  font-size: 11px;
+  color: #999;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .otp-display-container {
+    top: 10px;
+    right: 10px;
+    left: 10px;
+    min-width: auto;
+    max-width: none;
+  }
+}
