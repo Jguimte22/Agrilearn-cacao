@@ -9,9 +9,8 @@
   command = "npm run dev"
   port = 3000
 
-# Catch all routes and serve index.html for SPA routing
+# SPA routing: redirect all non-file requests to index.html
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
-  force = true
