@@ -26,6 +26,7 @@ import {
   BarElement
 } from 'chart.js';
 import './adminDashboard.css';
+import { API_BASE_URL as baseApi } from '../services/api';
 
 // Register ChartJS components
 ChartJS.register(
@@ -143,10 +144,10 @@ const AdminDashboard = () => {
 
       // Try the actual route with authentication
       console.log('📊 Trying actual route with authentication...');
-      console.log('📊 Request URL:', `http://localhost:5000/api/admin/users/${userId}/progress`);
+      console.log('📊 Request URL:', `${baseApi}/admin/users/${userId}/progress`);
       console.log('📊 Request headers:', { 'Authorization': `Bearer ${token?.substring(0, 20)}...` });
 
-      const response = await fetch(`http://localhost:5000/api/admin/users/${userId}/progress`, {
+      const response = await fetch(`${baseApi}/admin/users/${userId}/progress`, {
         headers: { 'Authorization': `Bearer ${token}` }
       });
 
@@ -379,6 +380,7 @@ const AdminDashboard = () => {
     }
   }, [activeTab]);
 
+  
   const getToken = () => localStorage.getItem('token') || localStorage.getItem('adminToken') || sessionStorage.getItem('token') || sessionStorage.getItem('adminToken');
 
   const handleLogout = () => {
@@ -492,9 +494,9 @@ const AdminDashboard = () => {
     try {
       const token = getToken();
       const [usersRes, coursesRes, messagesRes] = await Promise.all([
-        fetch('http://localhost:5000/api/admin/users', { headers: { Authorization: `Bearer ${token}` } }),
-        fetch('http://localhost:5000/api/courses', { headers: { Authorization: `Bearer ${token}` } }),
-        fetch('http://localhost:5000/api/messages', { headers: { Authorization: `Bearer ${token}` } })
+        fetch(`${baseApi}/admin/users`, { headers: { Authorization: `Bearer ${token}` } }),
+        fetch(`${baseApi}/courses`, { headers: { Authorization: `Bearer ${token}` } }),
+        fetch(`${baseApi}/messages`, { headers: { Authorization: `Bearer ${token}` } })
       ]);
 
       const usersData = await usersRes.json();
@@ -542,7 +544,7 @@ const AdminDashboard = () => {
     try {
       setLoading(true);
       const token = getToken();
-      const response = await fetch('http://localhost:5000/api/courses', {
+      const response = await fetch(`${baseApi}/courses`, {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       const result = await response.json();
@@ -622,7 +624,7 @@ const AdminDashboard = () => {
 
     try {
       const token = getToken();
-      const response = await fetch(`http://localhost:5000/api/courses/${courseId}`, {
+      const response = await fetch(`${baseApi}/courses/${courseId}`, {
         method: 'DELETE',
         headers: { 'Authorization': `Bearer ${token}` }
       });
@@ -648,8 +650,8 @@ const AdminDashboard = () => {
     try {
       const token = getToken();
       const url = isEditingCourse
-        ? `http://localhost:5000/api/courses/${currentCourse._id}`
-        : 'http://localhost:5000/api/courses';
+        ? `${baseApi}/courses/${currentCourse._id}`
+        : `${baseApi}/courses`;
 
       const method = isEditingCourse ? 'PUT' : 'POST';
 
@@ -820,7 +822,7 @@ const AdminDashboard = () => {
     setError(null);
     try {
       const token = getToken();
-      const response = await fetch('http://localhost:5000/api/admin/users', {
+      const response = await fetch(`${baseApi}/admin/users`, {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       const result = await response.json();
@@ -862,7 +864,7 @@ const AdminDashboard = () => {
 
     try {
       const token = getToken();
-      const response = await fetch(`http://localhost:5000/api/admin/users/${userId}`, {
+      const response = await fetch(`${baseApi}/admin/users/${userId}`, {
         method: 'DELETE',
         headers: { 'Authorization': `Bearer ${token}` }
       });
@@ -885,8 +887,8 @@ const AdminDashboard = () => {
     try {
       const token = getToken();
       const url = isEditingUser
-        ? `http://localhost:5000/api/admin/users/${currentUser._id}`
-        : 'http://localhost:5000/api/users/register';
+        ? `${baseApi}/admin/users/${currentUser._id}`
+        : `${baseApi}/users/register`;
 
       const method = isEditingUser ? 'PUT' : 'POST';
 
@@ -935,7 +937,7 @@ const AdminDashboard = () => {
     setLoading(true);
     try {
       const token = localStorage.getItem('token') || localStorage.getItem('adminToken') || sessionStorage.getItem('token') || sessionStorage.getItem('adminToken');
-      const response = await fetch('http://localhost:5000/api/messages', {
+      const response = await fetch(`${baseApi}/messages`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       const result = await response.json();
@@ -951,7 +953,7 @@ const AdminDashboard = () => {
     if (currentStatus) return;
     try {
       const token = getToken();
-      await fetch(`http://localhost:5000/api/messages/${messageId}/read`, {
+      await fetch(`${baseApi}/messages/${messageId}/read`, {
         method: 'PATCH',
         headers: { Authorization: `Bearer ${token}` }
       });
@@ -968,7 +970,7 @@ const AdminDashboard = () => {
     if (!window.confirm('Delete this message?')) return;
     try {
       const token = getToken();
-      await fetch(`http://localhost:5000/api/messages/${messageId}`, {
+      await fetch(`${baseApi}/messages/${messageId}`, {
         method: 'DELETE',
         headers: { Authorization: `Bearer ${token}` }
       });
@@ -991,7 +993,7 @@ const AdminDashboard = () => {
     setSendingReply(true);
     try {
       const token = getToken();
-      const response = await fetch(`http://localhost:5000/api/messages/${selectedMessage._id}/reply`, {
+      const response = await fetch(`${baseApi}/messages/${selectedMessage._id}/reply`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
         body: JSON.stringify({ subject: replyData.subject, replyMessage: replyData.message })
@@ -1350,7 +1352,7 @@ const AdminDashboard = () => {
                   width: '80px',
                   height: '80px',
                   borderRadius: '50%',
-                  backgroundImage: `url(http://localhost:5000${userProgress.userProfilePicture})`,
+                  backgroundImage: userProgress.userProfilePicture ? `url(${baseApi.replace('/api', '')}${userProgress.userProfilePicture})` : 'none',
                   backgroundSize: 'cover',
                   backgroundPosition: 'center'
                 }}>
@@ -1847,7 +1849,7 @@ const AdminDashboard = () => {
               <div key={user._id} className="admin-user-card">
                 {user.profilePicture ? (
                   <div className="admin-user-avatar-large" style={{
-                    backgroundImage: `url(http://localhost:5000${user.profilePicture})`,
+                    backgroundImage: user.profilePicture ? `url(${baseApi.replace('/api', '')}${user.profilePicture})` : 'none',
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                     fontSize: '0'
@@ -2007,7 +2009,7 @@ const AdminDashboard = () => {
                 <div className="admin-user-detail-header">
                   {selectedUserDetails.profilePicture ? (
                     <div className="admin-user-detail-avatar" style={{
-                      backgroundImage: `url(http://localhost:5000${selectedUserDetails.profilePicture})`,
+                      backgroundImage: selectedUserDetails.profilePicture ? `url(${baseApi.replace('/api', '')}${selectedUserDetails.profilePicture})` : 'none',
                       backgroundSize: 'cover',
                       backgroundPosition: 'center',
                       fontSize: '0'

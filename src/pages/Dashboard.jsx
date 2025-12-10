@@ -1,7 +1,7 @@
 import React, { useState, useEffect, Component } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
-import { fetchCourses as fetchCoursesFromAPI, fetchUserActivity, getBadgeViews, updateBadgeViews } from '../services/api';
+import { fetchCourses as fetchCoursesFromAPI, fetchUserActivity, getBadgeViews, updateBadgeViews, API_BASE_URL as baseApi } from '../services/api';
 import { progressAPI, achievementAPI, notificationAPI, progressUtils } from '../services/progressAPI';
 import certificateAPI from '../services/certificateAPI';
 import quizScoreAPI from '../services/quizScoreAPI';
@@ -664,7 +664,7 @@ const Dashboard = () => {
       }
 
       // Check the raw API response
-      const response = await fetch('http://localhost:5000/api/achievements/user', {
+      const response = await fetch(`${baseApi}/achievements/user`, {
         method: 'GET',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -1608,7 +1608,7 @@ const Dashboard = () => {
       }
 
       // Step 1: Send OTP for password change confirmation
-      const response = await fetch('http://localhost:5000/api/users/send-password-change-otp', {
+      const response = await fetch(`${baseApi}/users/send-password-change-otp`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -1682,7 +1682,7 @@ const Dashboard = () => {
       }
 
       // Verify OTP and change password
-      const response = await fetch('http://localhost:5000/api/users/verify-otp-change-password', {
+      const response = await fetch(`${baseApi}/users/verify-otp-change-password`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -1748,7 +1748,7 @@ const Dashboard = () => {
         return;
       }
 
-      const response = await fetch('http://localhost:5000/api/users/resend-password-change-otp', {
+      const response = await fetch(`${baseApi}/users/resend-password-change-otp`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -3879,7 +3879,7 @@ const Dashboard = () => {
                 <div className="profile-avatar-modern">
                   {currentUser.profilePicture ? (
                     <img
-                      src={`http://localhost:5000${currentUser.profilePicture}`}
+                      src={currentUser.profilePicture ? `${baseApi.replace('/api', '')}${currentUser.profilePicture}` : '/default-avatar.png'}
                       alt="Profile"
                       onError={(e) => {
                         e.target.style.display = 'none';
@@ -4068,7 +4068,7 @@ const Dashboard = () => {
                           formData.append('address', editedUser.address || '');
                           formData.append('gender', editedUser.gender || '');
 
-                          const response = await fetch(`http://localhost:5000/api/users/profile`, {
+                          const response = await fetch(`${baseApi}/users/profile`, {
                             method: 'PUT',
                             body: formData
                           });
@@ -4660,7 +4660,7 @@ const Dashboard = () => {
                     {profilePhoto || currentUser.profilePicture ? (
                       <>
                         <img
-                          src={profilePhoto || `http://localhost:5000${currentUser.profilePicture}`}
+                          src={profilePhoto || (currentUser.profilePicture ? `${baseApi.replace('/api', '')}${currentUser.profilePicture}` : '/default-avatar.png')}
                           alt="Profile"
                           onError={(e) => {
                             e.target.style.display = 'none';

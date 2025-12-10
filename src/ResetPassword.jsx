@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams, Link } from 'react-router-dom';
+import { API_BASE_URL as baseApi } from './services/api';
 import './Login.css';
 
 const ResetPassword = () => {
@@ -19,7 +20,7 @@ const ResetPassword = () => {
   useEffect(() => {
     const verifyToken = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/api/users/reset-password/${token}`);
+        const response = await fetch(`${baseApi}/users/reset-password/${token}`);
         const data = await response.json();
 
         if (response.ok && data.success) {
@@ -68,7 +69,7 @@ const ResetPassword = () => {
     setMessage(null);
 
     try {
-      const response = await fetch(`http://localhost:5000/api/users/reset-password/${token}`, {
+      const response = await fetch(`${baseApi}/users/reset-password/${token}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

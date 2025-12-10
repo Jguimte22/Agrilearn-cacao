@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
+import { API_BASE_URL } from './services/api';
 import './Login.css';
 
 const VerifyEmail = () => {
@@ -19,7 +20,7 @@ const VerifyEmail = () => {
       }
 
       try {
-        const response = await fetch(`http://localhost:5000/api/users/verify-email/${token}`, {
+        const response = await fetch(`${API_BASE_URL}/users/verify-email/${token}`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json'

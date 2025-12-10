@@ -36,6 +36,7 @@ const fetchWithAuth = async (url, options = {}) => {
   };
 
   if (token) {
+    headers['Authorization'] = `Bearer ${token}`;
     headers['x-auth-token'] = token;
   }
 
