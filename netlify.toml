@@ -3,15 +3,22 @@
   publish = "dist"
 
 [build.environment]
-  # Set build-time env vars here if desired. You can also set them in the Netlify UI.
   NODE_ENV = "production"
 
 [dev]
   command = "npm run dev"
   port = 3000
 
+# Catch all routes and serve index.html for SPA routing
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
   force = true
+  conditions = { NOT = [{ status = 200 }, { status = 404 }] }
+
+# Ensure API calls to functions work
+[[redirects]]
+  from = "/.netlify/functions/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
