@@ -99,6 +99,16 @@ body {
   width: 0;
 }
 
+/* Logo image inside header */
+.header-logo-link {
+  display: none;
+}
+
+.header-logo {
+  height: 48px;
+  width: auto;
+}
+
 /* Navigation */
 .elearning-nav {
   display: flex;
@@ -445,7 +455,12 @@ body {
   }
 
   .elearning-nav {
-    display: flex;
+    display: none;
+  }
+
+  .header-title {
+    display: block;
+    font-size: 1.6rem;
   }
 }
 
