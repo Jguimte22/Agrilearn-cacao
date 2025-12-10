@@ -1,5 +1,5 @@
 [build]
-  command = "npm install && npm run build"
+  command = "npm ci && npm run build"
   publish = "dist"
 
 [build.environment]
@@ -15,10 +15,3 @@
   to = "/index.html"
   status = 200
   force = true
-  conditions = { NOT = [{ status = 200 }, { status = 404 }] }
-
-# Ensure API calls to functions work
-[[redirects]]
-  from = "/.netlify/functions/*"
-  to = "/.netlify/functions/:splat"
-  status = 200
