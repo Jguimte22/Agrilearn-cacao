@@ -222,7 +222,7 @@ body {
   border-radius: 8px;
   cursor: pointer;
   padding: 8px;
-  z-index: 1001;
+  z-index: 1003;
   transition: all 0.3s ease;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   margin: 0;
@@ -270,7 +270,7 @@ body {
   width: 240px;
   height: 100vh;
   background: linear-gradient(180deg, #3e2723 0%, #5d4037 100%);
-  z-index: 1001;
+  z-index: 1002;
   transform: translateX(-100%);
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 2px 0 20px rgba(0, 0, 0, 0.15);
@@ -387,7 +387,7 @@ body {
   right: 0;
   bottom: 0;
   background: rgba(0, 0, 0, 0.7);
-  z-index: 1000;
+  z-index: 1001;
   backdrop-filter: blur(3px);
   opacity: 0;
   pointer-events: none;
