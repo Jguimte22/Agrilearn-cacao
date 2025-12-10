@@ -99,16 +99,6 @@ body {
   width: 0;
 }
 
-/* Logo image inside header */
-.header-logo-link {
-  display: none;
-}
-
-.header-logo {
-  height: 48px;
-  width: auto;
-}
-
 /* Navigation */
 .elearning-nav {
   display: flex;
@@ -439,28 +429,32 @@ body {
 /* Responsive Styles */
 @media (max-width: 768px) {
   .header-content {
-    padding: 0 1rem;
+    padding: 0 0.75rem;
     margin: 0 auto;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 0.5rem;
   }
 
   .header-title {
-    font-size: 1.8rem;
-    letter-spacing: -0.1px;
+    font-size: 1.4rem;
+    letter-spacing: -0.05px;
     text-align: center;
+    margin: 0;
+    white-space: normal;
+    flex-shrink: 0;
+    overflow: hidden;
+    text-overflow: clip;
   }
 
   .mobile-menu-toggle {
     display: flex;
+    position: static;
+    flex-shrink: 0;
   }
 
+  /* hide full desktop nav on mobile - only hamburger + centered title should show */
   .elearning-nav {
     display: none;
-  }
-
-  .header-title {
-    display: block;
-    font-size: 1.6rem;
   }
 }
 
@@ -503,17 +497,25 @@ body {
   }
 
   .header-content {
-    padding: 0 0.75rem;
+    padding: 0 0.5rem;
+    gap: 0.25rem;
   }
 
   .mobile-menu-toggle {
     width: 36px;
     height: 36px;
-    left: 0.75rem;
+    position: static;
+    flex-shrink: 0;
   }
 
   .header-title {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     letter-spacing: -0.05px;
+    margin: 0;
+    white-space: normal;
+    flex-shrink: 1;
+    overflow: hidden;
+    text-overflow: clip;
   }
+}
 }
