@@ -29,12 +29,18 @@ services:
         value: 10000
 
   # Frontend Service
-  - type: web
+  - type: static_site
     name: agrilearn-cacao-frontend
-    env: node
-    plan: free
-    buildCommand: npm install && npm run build
-    startCommand: npm run preview
+    buildCommand: npm ci && npm run build
+    staticPublishPath: ./dist
+    headers:
+      - path: /*
+        name: Cache-Control
+        value: no-cache
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
     envVars:
       - key: VITE_API_URL
         sync: false
