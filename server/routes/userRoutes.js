@@ -709,15 +709,16 @@ router.post('/login', async (req, res) => {
             });
         }
 
-        // Check if email is verified for both students and farmers
-        if (!user.emailVerified) {
-            console.log('Email not verified for user');
-            return res.status(403).json({
-                success: false,
-                message: 'Please verify your email before logging in. Check your inbox for the verification link.',
-                requiresVerification: true
-            });
-        }
+        // TEMPORARY: Comment out email verification check for testing
+        // TODO: Re-enable after confirming login flow works
+        // if (!user.emailVerified) {
+        //     console.log('Email not verified for user');
+        //     return res.status(403).json({
+        //         success: false,
+        //         message: 'Please verify your email before logging in. Check your inbox for the verification link.',
+        //         requiresVerification: true
+        //     });
+        // }
 
         // Create token
         const token = jwt.sign(

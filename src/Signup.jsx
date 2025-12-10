@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import './Login.css';
+import { API_BASE_URL as baseApi } from './services/api';
 
 const Signup = () => {
   const [firstName, setFirstName] = useState('');
@@ -91,7 +92,7 @@ const Signup = () => {
         password: '***'
       });
 
-      const response = await fetch('http://localhost:5000/api/users/register', {
+      const response = await fetch(`${baseApi}/users/register`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

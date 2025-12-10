@@ -1,6 +1,8 @@
 import axios from 'axios';
+import { API_BASE_URL } from './api';
 
-const API_BASE_URL = 'http://localhost:5000/api';
+// Diagnostic log to confirm runtime base URL in built site
+console.log('🛰️ progressAPI base URL:', API_BASE_URL);
 
 // Create axios instance with auth token
 const api = axios.create({

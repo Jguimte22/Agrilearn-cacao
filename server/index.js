@@ -10,7 +10,6 @@ const result = dotenv.config({ path: envPath });
 if (result.error && process.env.NODE_ENV !== 'production') {
   console.warn('⚠️ Warning: .env file not found. Using environment variables from system.');
 }
-
 // Check if required environment variables are set
 if (!process.env.MONGODB_URI) {
   console.error('❌ Error: MONGODB_URI environment variable is not set');
@@ -49,18 +48,10 @@ const app = express();
 
 // Middleware
 // Configure CORS to allow requests from the frontend. In production (Render)
+// TEMPORARY: Allow all origins while testing CORS issues. Will re-tighten after confirming login works.
 // set FRONTEND_URL env variable to your Vercel URL (e.g. https://your-app.vercel.app)
-const frontendOrigin = process.env.FRONTEND_URL || '*';
 const corsOptions = {
-  origin: (origin, callback) => {
-    // Allow requests with no origin (e.g., server-to-server, curl)
-    if (!origin) return callback(null, true);
-    // If FRONTEND_URL is set, allow only that origin; otherwise allow all
-    if (frontendOrigin === '*' || origin === frontendOrigin || origin.endsWith('.vercel.app')) {
-      return callback(null, true);
-    }
-    return callback(new Error('Not allowed by CORS'));
-  },
+  origin: '*',
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization', 'x-auth-token', 'Accept']

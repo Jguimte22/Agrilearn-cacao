@@ -1,5 +1,8 @@
 // Quiz Score API Service
-const API_BASE_URL = 'http://localhost:5000/api/quiz-scores';
+import { API_BASE_URL as BASE } from './api';
+const API_BASE_URL = `${BASE}/quiz-scores`;
+
+console.log('🛰️ quizScoreAPI base URL:', API_BASE_URL);
 
 // Helper function to get auth token
 const getAuthToken = () => {

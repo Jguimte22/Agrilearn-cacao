@@ -5,6 +5,7 @@ import { FaLayerGroup, FaListUl, FaClock, FaArrowLeft, FaQuestionCircle, FaCheck
 import './LessonsPage.css';
 import './video-content.css';
 import { progressAPI } from './services/progressAPI';
+import { API_BASE_URL as baseApi } from './services/api';
 
 // Helper function to get total lessons for each course (excluding video modules)
 const getTotalLessonsForCourse = (courseId) => {
@@ -737,7 +738,7 @@ const LessonsPage = () => {
       console.log('Testing API connection...');
 
       // First test if the API is working
-      const testResponse = await fetch('/api/progress/test', {
+      const testResponse = await fetch(`${baseApi}/progress/test`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',

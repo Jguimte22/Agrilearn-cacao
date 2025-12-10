@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import './Login.css';
+import { API_BASE_URL as baseApi } from './services/api';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -72,10 +73,10 @@ const Login = () => {
     });
   };
 
-  const handleResendVerification = async () => {
+    const handleResendVerification = async () => {
     setResendingEmail(true);
     try {
-      const response = await fetch('http://localhost:5000/api/users/resend-verification', {
+      const response = await fetch(`${baseApi}/users/resend-verification`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -157,7 +158,7 @@ const Login = () => {
 
     try {
       console.log('Attempting user login with:', { email: payload.email });
-      const { response: userResponse, data: userData } = await attemptLogin('http://localhost:5000/api/users/login');
+      const { response: userResponse, data: userData } = await attemptLogin(`${baseApi}/users/login`);
 
       // Check if user login requires verification
       if (!userResponse.ok && userData.requiresVerification) {
@@ -173,7 +174,7 @@ const Login = () => {
       }
 
       console.warn('User login failed, attempting admin login', userData);
-      const { response: adminResponse, data: adminData } = await attemptLogin('http://localhost:5000/api/admin/login');
+      const { response: adminResponse, data: adminData } = await attemptLogin(`${baseApi}/admin/login`);
       if (adminResponse.ok && adminData.success && adminData.token && adminData.admin) {
         handleAdminSuccess(adminData);
         return;

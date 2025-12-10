@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import './Login.css';
+import { API_BASE_URL as baseApi } from './services/api';
 
 const ForgotPassword = () => {
   const [formData, setFormData] = useState({
@@ -49,7 +50,7 @@ const ForgotPassword = () => {
     setMessage(null);
 
     try {
-      const response = await fetch('http://localhost:5000/api/users/send-reset-otp', {
+      const response = await fetch(`${baseApi}/users/send-reset-otp`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -132,7 +133,7 @@ const ForgotPassword = () => {
     setMessage(null);
 
     try {
-      const response = await fetch('http://localhost:5000/api/users/verify-otp-reset', {
+      const response = await fetch(`${baseApi}/users/verify-otp-reset`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

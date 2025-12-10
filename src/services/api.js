@@ -1,7 +1,21 @@
-// Get API URL from environment variable or use localhost default
-// VITE_API_URL should include the base path (e.g., http://localhost:5000/api or https://backend.onrender.com/api)
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+// Normalize API base so it works whether VITE_API_URL includes `/api` or not.
+// Allow a fallback to `http://localhost:5000/api` for local dev.
+const rawApiEnv = import.meta.env.VITE_API_URL;
+function normalizeApiBase(raw) {
+  const fallback = 'http://localhost:5000/api';
+  if (!raw) return fallback;
+  // Remove trailing slashes
+  let base = raw.replace(/\/+$/g, '');
+  // If it already ends with /api (or /api with nothing after), keep it
+  if (base.endsWith('/api')) return base;
+  // Otherwise append /api
+  return `${base}/api`;
+}
 
+export const API_BASE_URL = normalizeApiBase(rawApiEnv);
+
+// Diagnostic: log the resolved API base at runtime so we can verify Vercel env
+console.log('🛰️ API_BASE_URL resolved to:', API_BASE_URL);
 // Helper function to get auth token
 const getAuthToken = () => {
   const token = localStorage.getItem('token') || sessionStorage.getItem('token');
@@ -27,6 +41,7 @@ const fetchWithAuth = async (url, options = {}) => {
 
   const response = await fetch(`${API_BASE_URL}${url}`, {
     ...options,
+    mode: 'cors',
     headers,
   });
 

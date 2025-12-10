@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaYoutube } from 'react-icons/fa';
 import './ContactUs.css';
+import { API_BASE_URL as baseApi } from './services/api';
 import Header from './components/Header';
 
 function ContactUs() {
@@ -30,7 +31,7 @@ function ContactUs() {
     setSubmitStatus(null);
 
     try {
-      const response = await fetch('http://localhost:5000/api/messages', {
+      const response = await fetch(`${baseApi}/messages`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
